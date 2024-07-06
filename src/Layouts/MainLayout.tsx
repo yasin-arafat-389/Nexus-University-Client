@@ -1,47 +1,25 @@
-import { Layout, Menu } from "antd";
-import { adminSidebarItems } from "../Routes/Admin.routes";
+import { Button, Layout } from "antd";
 import { Outlet } from "react-router-dom";
+import Sidebar from "../Components/Sidebar";
+import { useAppDispatch } from "../Redux/hooks";
+import { logout } from "../Redux/Features/Auth/authSlice";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content } = Layout;
 
 const MainLayout = () => {
+  const dispatch = useAppDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <Layout style={{ height: "100vh" }}>
-      <Sider
-        breakpoint="lg"
-        collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: "20px",
-            marginBottom: "20px",
-          }}
-        >
-          <img
-            src="https://i.ibb.co/5sg8fnF/nexus-uni-logo.png"
-            style={{ width: "165px" }}
-            alt=""
-          />
-        </div>
-
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["4"]}
-          items={adminSidebarItems}
-        />
-      </Sider>
+      <Sidebar />
       <Layout>
-        <Header style={{ padding: 0 }} />
+        <Header>
+          <Button onClick={handleLogout}>Logout</Button>{" "}
+        </Header>
         <Content style={{ margin: "24px 16px 0" }}>
           <div
             style={{
@@ -52,9 +30,6 @@ const MainLayout = () => {
             <Outlet />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
       </Layout>
     </Layout>
   );
