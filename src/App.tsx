@@ -1,7 +1,12 @@
+import ProtectedRoute from "./Components/ProtectedRoute";
 import MainLayout from "./Layouts/MainLayout";
 
 function App() {
-  return <MainLayout />;
+  return (
+    <ProtectedRoute role={undefined}>
+      <MainLayout />
+    </ProtectedRoute>
+  );
 }
 
 export default App;
