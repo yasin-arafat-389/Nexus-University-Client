@@ -1,30 +1,69 @@
-# React + TypeScript + Vite
+# Nexus University
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+This project is a comprehensive academic management system designed to streamline the administration of various academic processes. The system manages students, faculty members, academic departments, courses, and academic semesters. It provides functionalities for creating, updating, and retrieving records, ensuring efficient management and access to essential academic information.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- User Management: Handle user creation, authentication, and authorization.
+- Student Management: Manage student information, including personal details, guardian information, and academic records.
+- Faculty Management: Manage faculty member details and their association with academic departments.
+- Academic Departments: Organize and manage academic departments and their associated faculties.
+- Course Management: Create and manage courses, including prerequisite courses and offered sections.
+- Semester Management: Manage academic semesters, including registration and offered courses
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technology Stack
 
-- Configure the top-level `parserOptions` property like this:
+- React
+- TypeScript
+- Redux Toolkit
+- React Router
+- Tailwind CSS
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Installation Guideline
+
+### Prerequisites
+
+- Node.js (version 14 or above)
+- npm (version 6 or above) or yarn (version 1.22 or above)
+
+### Installation Steps
+
+1. **Clone the repository**
+
+   ```sh
+   https://github.com/yasin-arafat-389/Nexus-University-Client
+   ```
+
+   2. **Navigate to the project directory**
+
+   ```sh
+   cd Nexus-University-Client
+
+   ```
+
+   3. **Install the dependencies**
+
+   ```sh
+   npm install
+   ```
+
+### Configuration
+
+1.  **Replace base URL according to your local machine**
+
+```sh
+const baseQuery = fetchBaseQuery({
+baseUrl: "http://localhost:5000/api",
+});
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Usage
+
+1.  **Start the development server**
+
+```sh
+npm run dev
+
+```
